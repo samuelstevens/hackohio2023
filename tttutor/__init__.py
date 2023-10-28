@@ -52,7 +52,8 @@ def create_app(test_config=None):
         else:
             if dev_mode == "cache-only":
                 # Load from cache
-                raise NotImplementedError()
+                posts = [ai.dummy_reddit()]
+                # raise NotImplementedError()
             elif dev_mode == "no-cache":
                 shortform = ai.GreenText()
                 posts = shortform.new(topic=topic, n=1)
