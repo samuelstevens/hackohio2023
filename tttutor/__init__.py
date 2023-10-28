@@ -61,7 +61,7 @@ def create_app(test_config=None):
             else:
                 raise ValueError()
             title = topic
-            print(posts)
+        print(posts)
 
         return render_template("posts.html", posts=posts, title=title)
 
