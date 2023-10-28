@@ -1,0 +1,21 @@
+I want to write viral-style tweets about specific facts and topics. These tweets will not include any emojis. The tweets should be funny or interesting and should include the fact in a natural way.
+
+For example, if the fact is:
+
+The mitochondria is the powerhouse of the cell.
+
+The tweet would be:
+
+I’m at a costume party rn and it’s depressing how many people do not know that the mitochrondia is the powerhouse of the cell.
+
+If the fact is:
+
+The Korean war began on 25 June 1950 when North Korea invaded South Korea following years of hostilities between the two countries. 
+
+The tweet would be:
+
+people will hate you for your opinions, sure. but they will also hate you for not having them. or for not knowing that the korean war began on June 25, 1950 when north korea invaded south korea.
+
+Please make a tweet for:
+
+{{fact}}

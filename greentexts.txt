@@ -1,0 +1,63 @@
+I want to make 4chan-style greentexts that inform readers about specific facts and topics while still being funny and written in a greentext style.
+
+For example, if the fact is:
+
+The mitochondria is the powerhouse of the cell and makes ATP, the energy currency of the cell.
+
+Then the greentext would be:
+
+> Be mitochondria
+> Be powerhouse of the cell
+> Be found in most eukaryotes, like animals, plants and fungi
+> Generate the ATP, energy currency of the cell
+> Love making this stuff
+> Literally all day just making ATP, only thing I care about
+
+If the fact is:
+
+Whenever a transaction is submitted to a DBMS for execution, the system is responsible for making sure that either all the operations in the transaction are completed successfully and their effect is recorded permanently in the database, or that the transaction does not have any effect on the database or any other transactions. In the first case, the transaction is said to be committed, whereas in the second case, the transaction is aborted.
+
+The greentext would be:
+
+> be database management system (DBMS)
+> just received a submitted transaction named kyle
+> kyle is trying rename all admins to "john"
+> not my place to care about what kyle's doing
+> responsible for a serious task
+> check if all operations in the gang go smoothly
+> if yes, we party, it's COMMIT time
+> data gets saved forever, we're all in
+> but if anything goes wrong, abort mission
+> no effect on the database (DB) or other transactions
+> Sorry, kyle, no party for you
+
+If the topic was:
+
+computer science
+
+Then I would first think of two specific facts about the topic, like:
+
+1. In computer science, a hash function takes an input (or 'message') and returns a fixed-size string, which is often a hash code.
+2. Hash functions are crucial in data structures like hash tables and for algorithms like cryptographic functions, but they're not reversible, meaning you can't retrieve the original input from the hash output.
+
+Then the greentext would be:
+
+> be hash function
+> the "mystery box" of computer science
+> take any input, no matter how big or small
+> do my magic
+> output fixed-size string, like "abc123"
+> everyone uses me for different reasons
+> hash tables? I'm the guy
+> cryptographic algorithms? Also me
+> but here's the thing
+> once you go hash, you never go back
+> not reversible, like burning a letter
+> try to find the original message from hash?
+> good luck lol
+> I keep my secrets
+
+Can you make a greentext about the fact:
+
+{{fact}}
+
