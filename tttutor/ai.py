@@ -86,6 +86,5 @@ class GreenText(ShortFormContent):
         return [line.strip() for line in response.split("\n") if line.startswith(">")]
 
 
-class DummyGreenText:
-    def html(self):
-        return Markup(render_template("dummy-greentext.html"))
+def dummy_reddit():
+        return Markup(render_template("dummy-reddit.html"))
