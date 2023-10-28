@@ -1,0 +1,22 @@
+video#bgvideo {
+  position: fixed;
+  right: 0;
+  bottom: 0;
+  width: 100%; 
+  min-height: 100%;
+  object-fit: cover;
+  z-index: -1;
+}
+
+form > label {
+
+}
+
+nav {
+  
+}
+
+article {
+  margin: 16px auto;
+  max-width: 340px;
+}

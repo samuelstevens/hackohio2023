@@ -57,7 +57,3 @@ Then the greentext would be:
 > good luck lol
 > I keep my secrets
 
-Can you make a greentext about the fact:
-
-{{fact}}
-

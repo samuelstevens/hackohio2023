@@ -1,0 +1,29 @@
+{% extends 'base.html' %}
+
+{% block header %}
+ <h1>{% block title %}"{{title}}"{% endblock %} Posts</h1>
+{% endblock %}
+
+{% block content %}
+<header>
+ <form method="get">
+  <label for="topic">Topic</label>
+  <input name="topic" id="topic" value="computer science">
+  <label for="dev">Dev Mode</label>
+  <select name="dev" id="dev">
+   <option value="prod">Production</option>
+   <option value="cache-only">Use cached</option>
+   <option value="no-cache">Ignore cache</option>
+  </select>
+  <input type="submit" value="Search">
+ </form>
+</header>
+<div>
+{% for post in posts %}
+ <article class="post">
+  {{ post.html() }}
+ </article>
+{% endfor %}
+<video id="bgvideo" autoplay muted loop>
+ <source src="{{ url_for('static', filename='videos/bg.mp4') }}" type=video/mp4> Your browser does not support the video tag.</video>
+{% endblock %}
