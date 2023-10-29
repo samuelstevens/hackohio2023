@@ -122,45 +122,39 @@ div.twitter {
   border-radius: 10px;
 
   font-family: sans-serif;
- }
- div.twitter .line {
-   border-left: 2px solid grey;
-   width:2px;
-   height: 80%;
-   justify-self: center;    
-   margin: 3px;
-   align-items: center;
- }
-
- div.twitter .twitter img{
-   width: 50px;
-   height: 50px;
-   border-radius: 50%;
-   margin-right: 5px;
- }
-
- div.twitter .follow span{
-   color: darkblue;
- }
-
- div.twitter .follow{
-   margin-bottom: 10px;
- }
-
- div.twitter .icon-box{
-   display: flex;
-   flex-direction: row;
-   margin-top: 10px;
- }
-
- div.twitter .icon{
-   font-weight: bold;
-   font-size: 20px;
-   margin: 0px 5px 0px 15px;
- }
+}
+div.twitter .line {
+  border-left: 2px solid grey;
+  width:2px;
+  height: 80%;
+  justify-self: center;    
+  margin: 3px;
+  align-items: center;
+}
+div.twitter img{
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  margin-right: 5px;
+}
+div.twitter .follow span{
+  color: darkblue;
+}
+div.twitter .follow{
+  margin-bottom: 10px;
+}
+div.twitter .icon-box{
+  display: flex;
+  flex-direction: row;
+  margin-top: 10px;
+}
+div.twitter .icon{
+  font-weight: bold;
+  font-size: 20px;
+  margin: 0px 5px 0px 15px;
+}
 
 /* VIDEO */
-
 video#bgvideo {
   position: fixed;
   right: 0;
