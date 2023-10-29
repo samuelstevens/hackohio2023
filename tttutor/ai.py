@@ -20,6 +20,7 @@ def load_prompt(filename):
 system_prompt = load_prompt("system.txt")
 greentext_prompt = load_prompt("greentext.txt")
 reddit_prompt = load_prompt("reddit.txt")
+tweet_prompt = load_prompt("tweets.txt")
 
 
 def get_greentexts(*, topic=None, facts=None, n=10) -> list[schema.Post]:
@@ -74,12 +75,8 @@ def get_reddit_posts(*, topic=None, facts=None, n=10) -> list[schema.Post]:
     if facts is None:
         facts = []
 
-    user_prompt = reddit_prompt
-    if topic:
-        user_prompt += f"\nCan you make a reddit post about the topic:\n\n{topic}\n"
-
     prefix = "Reddit Post:"
-    user_prompt += f"\nThink step by step, first writing the two specific facts, then writing the reddit post in a way that naturally incorporates those facts. Remember to make the reddit post compelling to read. Start the post with the phrase '{prefix}'"
+    user_prompt = reddit_prompt.format(topic=topic, prefix=prefix)
 
     response = openai.ChatCompletion.create(
         model="gpt-3.5-turbo",
@@ -96,8 +93,39 @@ def get_reddit_posts(*, topic=None, facts=None, n=10) -> list[schema.Post]:
             print("Missing prefix")
             continue
 
-        text = choice.message.content[i:].strip(prefix).strip()
+        text = choice.message.content[i:].strip(prefix).strip('"').strip()
         raw = json.dumps({"text": text, "title": topic.capitalize()})
         post = schema.Post(raw, "reddit", topic, facts)
+        posts.append(post)
+    return posts
+
+
+def get_tweets(*, topic=None, facts=None, n=10) -> list[schema.Post]:
+    if not topic and not facts:
+        raise ValueError("Missing topic and facts")
+
+    if facts is None:
+        facts = []
+
+    user_prompt = tweet_prompt
+    user_prompt += f"\nNow please make a tweet about the topic:\n\n{topic}\n"
+    user_prompt += "\nThink step by step and explain the joke before writing the tweet. Be sure to format your tweet with '> ' as a prefix."
+
+    response = openai.ChatCompletion.create(
+        model="gpt-3.5-turbo",
+        messages=[
+            {"role": "system", "content": system_prompt},
+            {"role": "user", "content": user_prompt},
+        ],
+        n=n,
+    )
+    posts = []
+    for choice in response.choices:
+        raw = "".join(
+            line.lstrip(">").strip()
+            for line in choice.message.content.split("\n")
+            if line.startswith(">")
+        )
+        post = schema.Post(raw, "tweet", topic, facts)
         posts.append(post)
     return posts

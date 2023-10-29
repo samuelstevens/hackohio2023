@@ -19,5 +19,7 @@ class Post:
             return html.embed_greentext(self.raw)
         elif self.type == "reddit":
             return html.embed_reddit(self.raw)
+        elif self.type == "tweet":
+            return html.embed_tweet(self.raw)
         else:
             raise NotImplementedError(self.type)

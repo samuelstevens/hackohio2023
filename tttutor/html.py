@@ -17,6 +17,20 @@ def random_username() -> str:
     )
 
 
+def random_name() -> str:
+    return random.choice(
+        [
+            "Brutus",
+            "Kristina",
+            "Sam",
+            "Blake",
+            "Xander",
+            "Kanye",
+            "ElonMusk",
+        ]
+    )
+
+
 def random_time():
     hours = random.choice(range(23))
     return f"{hours}hr ago"
@@ -50,3 +64,16 @@ def embed_reddit(raw: str) -> Markup:
     post["img"] = random_img()
     post["upvotes"] = random.randint(-10, 5000)
     return Markup(render_template("reddit.html", post=post))
+
+
+def embed_tweet(raw: str) -> Markup:
+    post = {
+        "text": raw,
+        "username": random_username(),
+        "author": random_name(),
+        "likes": f"{random.randint(3, 900)}.{random.randint(0, 9)}K",
+        "replies": random.randint(10, 100),
+        "img": random_img(),
+    }
+
+    return Markup(render_template("twitter.html", post=post))

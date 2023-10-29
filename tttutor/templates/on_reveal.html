@@ -1,9 +1,10 @@
 <form
  id="need-more" 
- hx-trigger="revealed" 
+ hx-trigger="intersect once"
  hx-swap="outerHTML" 
  hx-target="#end"
  hx-get="/api/more">
   <input hidden name="topic" value="{{ topic }}">
+  <p>Content</p>
 </form>
 
