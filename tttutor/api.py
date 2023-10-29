@@ -1,6 +1,6 @@
 import random
 
-from flask import Blueprint, render_template, request
+from flask import Blueprint, Markup, render_template, request
 
 from tttutor import ai, db
 
@@ -10,6 +10,9 @@ bp = Blueprint("api", __name__, url_prefix="/api")
 
 def dummy_reddit():
         return Markup(render_template("dummy-reddit.html"))
+
+def dummy_twitter():
+        return Markup(render_template("dummy-twitter.html"))
 
 @bp.route("/more")
 def more():

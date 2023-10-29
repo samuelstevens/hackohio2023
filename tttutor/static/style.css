@@ -14,12 +14,17 @@ html {
   --greentext-green: rgb(132, 159, 81);
   --greentext-dark-green: rgb(56, 119, 75);
   --greentext-gray: rgb(119, 121, 134);
+
+  --reddit-gray: #1A1A1B;
+  --reddit-time-gray: #4b4b4b;
 }
 
 /* GREENTEXT */
 
 div.greentext {
   background: var(--greentext-blue);
+  max-width: 480px;
+  border: 1px solid grey;
 }
 
 div.greentext div.img {
@@ -54,7 +59,105 @@ div.greentext span.author {
 }
 
 /* REDDIT */
+div.reddit {
+  background: var(--reddit-gray);
+  color: white;
+  display: flex;
+  flex-direction: row;
+  padding: 5px;
+  max-width: 90%;
+  border: 1px solid grey;
+}
+div.reddit div.arrow-box{
+  display:flex;
+  flex-direction: column;
+  align-items: center;
+  padding-top: 5px;
+  margin-right: 5px;
+  width: 40px;
+}
+div.reddit div.arrow-box img{
+  width:30px;
+  height:30px;
+  margin-bottom: 5px;
 
+  -webkit-filter: invert(100%);
+  filter: invert(100%);
+}
+div.reddit .inverted{
+  transform: rotate(180deg)
+}
+div.reddit .arrow-box p {
+  justify-content: center;
+}
+div.reddit img.profile{
+  width:30px;
+  height:30px;
+  margin-right:5px;
+}
+div.reddit div.username-box{
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+div.reddit  div.username-box .time{
+  font-size: small;
+  color: var(--reddit-time-gray);
+}
+div.reddit div.username-box span{
+  display: flex;
+  flex-direction: row;
+}
+
+/* TWITTER */
+div.twitter {
+  background: white;
+  display: flex;
+  flex-direction: row;
+
+  padding: 5px;
+  max-width: 500px;
+
+  border: 1px solid grey;
+  border-radius: 10px;
+
+  font-family: sans-serif;
+ }
+ div.twitter .line {
+   border-left: 2px solid grey;
+   width:2px;
+   height: 80%;
+   justify-self: center;    
+   margin: 3px;
+   align-items: center;
+ }
+
+ div.twitter .twitter img{
+   width: 50px;
+   height: 50px;
+   border-radius: 50%;
+   margin-right: 5px;
+ }
+
+ div.twitter .follow span{
+   color: darkblue;
+ }
+
+ div.twitter .follow{
+   margin-bottom: 10px;
+ }
+
+ div.twitter .icon-box{
+   display: flex;
+   flex-direction: row;
+   margin-top: 10px;
+ }
+
+ div.twitter .icon{
+   font-weight: bold;
+   font-size: 20px;
+   margin: 0px 5px 0px 15px;
+ }
 
 /* VIDEO */
 
@@ -70,7 +173,6 @@ video#bgvideo {
 
 div.post {
   margin: 16px auto;
-  max-width: 480px;
 }
 
 

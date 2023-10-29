@@ -1,81 +1,15 @@
-<style>
-  html {
-   box-sizing: border-box;
-  }
- 
-  *,*:before,*:after {
-   box-sizing: inherit;
-   margin: 0;
-   padding: 0;
-  }
- 
-  :root {
-   --gray: #1A1A1B;
-   --time-gray: #4b4b4b;
-  }
-
-  div.greentext {
-   background: var(--gray);
-   color: white;
-   display: flex;
-   flex-direction: row;
-   padding: 5px;
-  }
-  div.arrow-box{
-    display:flex;
-    flex-direction: column;
-    align-items: center;
-    padding-top: 5px;
-    margin-right: 5px;
-    width: 40px;
-  }
-  div.arrow-box img{
-    width:30px;
-    height:30px;
-    margin-bottom: 5px;
-
-    -webkit-filter: invert(100%);
-    filter: invert(100%);
-  }
-  .inverted{
-    transform: rotate(180deg)
-  }
-  .arrow-box p {
-    justify-content: center;
-  }
-  img.profile{
-    width:30px;
-    height:30px;
-    margin-right:5px;
-  }
-  div.username-box{
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-  }
-  div.username-box .time{
-    font-size: small;
-    color: var(time-gray);
-  }
-  div.username-box span{
-    display: flex;
-    flex-direction: row;
-  }
-
- </style>
- <div class="greentext body">
-  <div class="arrow-box">
-    <img src="{{ url_for('static', filename='images/arrow.png') }}">
-    <p>30</p>
-    <img class="inverted" src="{{ url_for('static', filename='images/arrow.png') }}">
-  </div>
-  <div>
-    <div class="username-box">
-      <img class="profile" src="{{ url_for('static', filename='images/sid.jpg') }}">
-      <span><p>RandomOSUGuy17 • </p><p class="time">&nbsp;5hr ago.</p></span>
-    </div>
-    <h2>Campus Park No Cool</h2>
-    <p>anyone have a good way of getting out of a bullshit $80 parking ticket? please pm me. you shouldn’t have to pay for parking on campus imo. i understand for game days and week days, but weekends? come on.    </p>
-  </div>
+<div class="reddit body">
+ <div class="arrow-box">
+   <img src="{{ url_for('static', filename='images/arrow.png') }}">
+   <p>30</p>
+   <img class="inverted" src="{{ url_for('static', filename='images/arrow.png') }}">
  </div>
- 
+ <div>
+   <div class="username-box">
+     <img class="profile" src="{{ url_for('static', filename='images/sid.jpg') }}">
+     <span><p>RandomOSUGuy17 • </p><p class="time">&nbsp;5hr ago.</p></span>
+   </div>
+   <h2>Campus Park No Cool</h2>
+   <p>anyone have a good way of getting out of a bullshit $80 parking ticket? please pm me. you shouldn’t have to pay for parking on campus imo. i understand for game days and week days, but weekends? come on.    </p>
+ </div>
+</div>
