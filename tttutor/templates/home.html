@@ -50,11 +50,12 @@
   </header>
   <div id="post-container">
   </div>
-  <video id="bgvideo" autoplay muted loop>
+  <video id="bgvideo" autoplay muted loop inline>
    <source src="{{ video }}.mp4" type=video/mp4>
    <source src="{{ video }}.m4v" type=video/m4v>
    Your browser does not support the video tag.
   </video>
  </section>
  <script src="{{ url_for('static', filename='js/htmx.min.js') }}"></script>
+ <script>document.getElementById("bgvideo").play();</script>
 </body>

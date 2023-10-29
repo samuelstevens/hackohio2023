@@ -8,7 +8,7 @@ import openai
 
 from tttutor import schema
 
-openai.api_key = os.getenv("OPENAI_API_KEY")
+openai.api_key = "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"
 
 
 def load_prompt(filename):

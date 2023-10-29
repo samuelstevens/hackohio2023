@@ -40,13 +40,13 @@ def random_img():
     meme_dir = os.path.join(current_app.root_path, "static/images/memes")
     choices = os.listdir(meme_dir)
     choice = random.choice(choices)
-
+    
     return url_for("static", filename=f"images/memes/{choice}")
 
 
 def random_video():
     meme_dir = os.path.join(current_app.root_path, "static/videos")
-    choices = list(set(os.path.splitext(path)[0] for path in os.listdir(meme_dir)))
+    choices = [choice for choice in os.listdir(meme_dir) if choice.endswith("m4v")]
     choice = random.choice(choices)
 
     return url_for("static", filename=f"videos/{choice}")
