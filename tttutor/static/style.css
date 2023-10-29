@@ -1,3 +1,63 @@
+html {
+  box-sizing: border-box;
+}
+
+*,*:before,*:after {
+  box-sizing: inherit;
+  margin: 0;
+  padding: 0;
+}
+
+:root {
+  --greentext-yellow: rgb(255, 255, 239);
+  --greentext-blue: rgb(216, 216, 238);
+  --greentext-green: rgb(132, 159, 81);
+  --greentext-dark-green: rgb(56, 119, 75);
+  --greentext-gray: rgb(119, 121, 134);
+}
+
+/* GREENTEXT */
+
+div.greentext {
+  background: var(--greentext-blue);
+}
+
+div.greentext div.img {
+  float: left;
+  width: 140px;
+  margin: 0px 12px;
+}
+div.greentext img {
+  max-width: 100%;
+}
+div.greentext div.img > .caption {
+  color: var(--greentext-gray);
+  font-size: 0.8rem;
+
+  /* Center the text */
+  display: inline-block;
+  text-align: center;
+  width: 100%;
+}
+
+div.greentext span.quote {
+  color: var(--greentext-green);
+}
+
+div.greentext header {
+  background: var(--greentext-darker-blue);
+  border-bottom: 1px solid var(--greentext-darkest-blue);
+}
+div.greentext span.author {
+  font-weight: 600;
+  color: var(--greentext-dark-green);
+}
+
+/* REDDIT */
+
+
+/* VIDEO */
+
 video#bgvideo {
   position: fixed;
   right: 0;
@@ -8,15 +68,48 @@ video#bgvideo {
   z-index: -1;
 }
 
-form > label {
-
-}
-
-nav {
-  
-}
-
-article {
+div.post {
   margin: 16px auto;
-  max-width: 340px;
+  max-width: 480px;
+}
+
+
+/* SEARCH BAR */
+#collapse-button{
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+
+  width:100%;
+  background-color: #eee;
+  color: #444;
+  border: none;
+  height: 30px;
+}
+#collapse-button img {
+  width: 15px;
+  height: 15px;
+}
+.active#collapse-button:hover{
+  background-color: #ccc;
+}
+#collapse-button:after{
+  content: '\02795'; 
+
+}
+.active:after{
+  content: "\2796";
+}
+#search-fields{
+  padding: 0 18px;
+  background-color: #eee;
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.2s ease-out;
+}
+#search-container{
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
 }
