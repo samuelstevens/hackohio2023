@@ -88,12 +88,11 @@ def get_reddit_posts(*, topic=None, facts=None, n=10) -> list[schema.Post]:
     )
     posts = []
     for choice in response.choices:
-        i = choice.message.content.rfind(prefix)
-        if i < 0:
-            print("Missing prefix")
-            continue
-
-        text = choice.message.content[i:].strip(prefix).strip('"').strip()
+        text = "".join(
+            line.lstrip(">").strip()
+            for line in choice.message.content.split("\n")
+            if line.startswith(">")
+        )
         raw = json.dumps({"text": text, "title": topic.capitalize()})
         post = schema.Post(raw, "reddit", topic, facts)
         posts.append(post)

@@ -6,9 +6,9 @@ The mitochondria is the powerhouse of the cell and makes ATP, the energy currenc
 
 Then the reddit post would be:
 
-AITA for telling my prison cellmate that I am mitochondria after I beat him up? I don’t produce ATP, but I am the powerhouse of this cell. 
-
-Edit: Yes, I am posting from prison.
+> AITA for telling my prison cellmate that I am mitochondria after I beat him up? I don’t produce ATP, but I am the powerhouse of this cell. 
+> 
+> Edit: Yes, I am posting from prison.
 
 If the topic was:
 
@@ -16,7 +16,7 @@ The spartan army
 
 Then I would think about a specific and significant event or fact involving them, and the reddit post would be:
 
-Does anyone else think about how 300 spartans went on a suicide mission just to stick it to the Persians? Because I do.
+> Does anyone else think about how 300 spartans went on a suicide mission just to stick it to the Persians? Because I do.
 
 If the topic was:
 
@@ -24,14 +24,14 @@ Kinetic energy in physics
 
 Then I would think of a informative yet interesting story or fact involving that, and the reddit post would be:
 
-One day I was curious about physics. I dropped a heavy ball on my leg and it didn’t hurt much. Then I threw a light ball at my leg at a fast speed, and it hurt like hell. That’s when I really started to understand kinetic energy.
-
-Edit: THANK YOU FOR THE UPVOTES
-
-Edit2: Spelling
+> One day I was curious about physics. I dropped a heavy ball on my leg and it didn’t hurt much. Then I threw a light ball at my leg at a fast speed, and it hurt like hell. That’s when I really started to understand kinetic energy.
+> 
+> Edit: THANK YOU FOR THE UPVOTES
+> 
+> Edit2: Spelling
 
 Can you make a similar reddit post about the topic:
 
 {topic}
 
-Think step by step. First write the specific fact that the post will include. Then write the Reddit post in a way that naturally incorporates that fact, while being funny and compelling  and easy to read. Remember to that Reddit posts are 3-6 sentences. Start the post with the phrase '{prefix}'
+Think step by step. First write the specific fact that the post will include. Then write the Reddit post in a way that naturally incorporates that fact, while being funny and compelling  and easy to read. Remember to that Reddit posts are 3-6 sentences.
