@@ -15,12 +15,12 @@
   <header>
     <button id="collapse-button"></button>
     <div id="search-fields">
-      <form hx-get="/api/more" hx-boost hx-target="div#empty" hx-swap="outerHTML">
+      <form hx-get="/api/more" hx-boost hx-target="#post-container" hx-swap="innerHTML">
         <div style="height:10px"></div>
         <div id="search-container">
           <div style="margin: 0px 5px 0px">
             <label for="topic">Topic</label>
-            <input name="topic" id="topic" value="computer science">
+            <input name="topic" id="topic" value="kinetic">
           </div>
           <div style="margin: 0px 5px 0px">
             <label for="dev">Dev Mode</label>
@@ -47,14 +47,11 @@
       }
   });
   </script>
-</header>
-
-  <div id="empty">
-   <p>Search for a topic above!</p>
+  </header>
+  <div id="post-container">
   </div>
-  <!-- <div id="need-more" hx-trigger="revealed" hx-swap="beforebegin" hx-get="/api/more" hx-include="[topic='{{ topic }}']">Loading...</div> -->
   <video id="bgvideo" autoplay muted loop>
-   <source src="{{ url_for('static', filename='videos/bg.mp4') }}" type=video/mp4>
+   <source src="{{ video }}" type=video/mp4>
    Your browser does not support the video tag.
   </video>
  </section>

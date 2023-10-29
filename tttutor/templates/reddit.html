@@ -14,7 +14,7 @@
    --time-gray: #4b4b4b;
   }
 
-  div.greentext {
+  div.reddit {
    background: var(--gray);
    color: white;
    display: flex;
@@ -63,20 +63,23 @@
   }
 
  </style>
- <div class="greentext body">
+ <div class="reddit body">
   <div class="arrow-box">
-    <img src="{{ url_for('static', filename='images/arrow.png') }}">
-    <p>30</p>
-    <img class="inverted" src="{{ url_for('static', filename='images/arrow.png') }}">
+    <img src="{{ url_for('static', filename='images/web/arrow.png') }}">
+    <p>{{ post.upvotes }}</p>
+    <img class="inverted" src="{{ url_for('static', filename='images/web/arrow.png') }}">
   </div>
   <div>
     <div class="username-box">
-      <img class="profile" src="{{ url_for('static', filename='images/sid.jpg') }}">
-      <span><p>RandomOSUGuy17 • </p><p class="time">&nbsp;5hr ago.</p></span>
+      <img class="profile" src="{{ post.img }}">
+      <span>
+        <p>{{ post.author }} &#xb7;</p>
+        <p class="time">&nbsp;5hr ago.</p>
+      </span>
     </div>
-    <h2>Campus Park No Cool</h2>
-    {% for line in post.lines %}
-      <p>{{ line }}</p>
+    <h2>{{ post.title}}</h2>
+    {% for line in post.text.split("\n") %}
+      <p style="margin-bottom: 8px;">{{ line }}</p>
     {% endfor %}
   </div>
  </div>

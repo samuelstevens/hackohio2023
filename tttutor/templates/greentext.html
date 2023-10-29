@@ -5,7 +5,7 @@
    <span class="date">09/14/20(Mon)01:10:39 No.163566498</span>
  </header>
  <main>
-  <div class="img"><img src="{{ url_for('static', filename='images/sid.jpg') }}"><span class="caption">77 KB JPEG</span></div>
+  <div class="img"><img src="{{ post.img }}"><span class="caption">77 KB JPEG</span></div>
   {% for line in post.lines %}
    <span class="quote">{{ line }}</span>
    <br/>

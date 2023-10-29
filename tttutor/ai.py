@@ -3,6 +3,7 @@ Does all the AI-related stuff.
 """
 
 import os
+import json
 import openai
 
 from tttutor import schema
@@ -18,6 +19,7 @@ def load_prompt(filename):
 # Constants
 system_prompt = load_prompt("system.txt")
 greentext_prompt = load_prompt("greentext.txt")
+reddit_prompt = load_prompt("reddit.txt")
 
 
 def get_greentexts(*, topic=None, facts=None, n=10) -> list[schema.Post]:
@@ -62,7 +64,40 @@ def get_greentexts(*, topic=None, facts=None, n=10) -> list[schema.Post]:
         )
         post = schema.Post(raw, "greentext", topic, facts)
         posts.append(post)
+    return posts
 
 
-def dummy_reddit():
-        return Markup(render_template("dummy-reddit.html"))
+def get_reddit_posts(*, topic=None, facts=None, n=10) -> list[schema.Post]:
+    if not topic and not facts:
+        raise ValueError("Missing topic and facts")
+
+    if facts is None:
+        facts = []
+
+    user_prompt = reddit_prompt
+    if topic:
+        user_prompt += f"\nCan you make a reddit post about the topic:\n\n{topic}\n"
+
+    prefix = "Reddit Post:"
+    user_prompt += f"\nThink step by step, first writing the two specific facts, then writing the reddit post in a way that naturally incorporates those facts. Remember to make the reddit post compelling to read. Start the post with the phrase '{prefix}'"
+
+    response = openai.ChatCompletion.create(
+        model="gpt-3.5-turbo",
+        messages=[
+            {"role": "system", "content": system_prompt},
+            {"role": "user", "content": user_prompt},
+        ],
+        n=n,
+    )
+    posts = []
+    for choice in response.choices:
+        i = choice.message.content.rfind(prefix)
+        if i < 0:
+            print("Missing prefix")
+            continue
+
+        text = choice.message.content[i:].strip(prefix).strip()
+        raw = json.dumps({"text": text, "title": topic.capitalize()})
+        post = schema.Post(raw, "reddit", topic, facts)
+        posts.append(post)
+    return posts

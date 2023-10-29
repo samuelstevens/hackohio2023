@@ -2,7 +2,7 @@ import os
 
 from flask import Flask, render_template
 
-from . import db, posts, api
+from . import db, posts, api, html
 
 
 def create_app(test_config=None):
@@ -37,6 +37,8 @@ def create_app(test_config=None):
 
     @app.route("/")
     def home():
-        return render_template("home.html", posts=[], title="")
+        return render_template(
+            "home.html", posts=[], title="", video=html.random_video()
+        )
 
     return app

@@ -17,5 +17,7 @@ class Post:
     def markup(self) -> Markup:
         if self.type == "greentext":
             return html.embed_greentext(self.raw)
+        elif self.type == "reddit":
+            return html.embed_reddit(self.raw)
         else:
             raise NotImplementedError(self.type)

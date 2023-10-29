@@ -9,10 +9,12 @@ bp = Blueprint("api", __name__, url_prefix="/api")
 
 
 def dummy_reddit():
-        return Markup(render_template("dummy-reddit.html"))
+    return Markup(render_template("dummy-reddit.html"))
+
 
 def dummy_twitter():
-        return Markup(render_template("dummy-twitter.html"))
+    return Markup(render_template("dummy-twitter.html"))
+
 
 @bp.route("/more")
 def more():
@@ -20,12 +22,8 @@ def more():
     facts = []
     topic = request.args.get("topic")
     dev_mode = request.args.get("dev", "prod")
-    dev_mode = "cache-only"
 
     n = 10
-
-    posts = []
-    title = "Search"
 
     if topic or facts:
         if dev_mode == "cache-only":
@@ -38,25 +36,26 @@ def more():
 
         elif dev_mode == "prod":
             # Load half from cache, half from openai
-            cached_posts = db.load_posts(topic=topic, n=n // 2)
+            posts = db.load_posts(topic=topic, n=n // 2)
 
             n = n - len(posts)
-            new_posts = ai.get_greentexts(topic=topic, n=n)
-            db.save_posts(new_posts)
+            if n > 0:
+                fn = random.choice([ai.get_greentexts, ai.get_reddit_posts])
+                new_posts = fn(topic=topic, n=n)
+                db.save_posts(new_posts)
 
-            posts = cached_posts + new_posts
+                posts += new_posts
+
             random.shuffle(posts)
         else:
             raise ValueError(dev_mode)
-        title = topic
-
         front_posts = posts[: len(posts) // 2]
         back_posts = posts[len(posts) // 2 :]
 
         return (
             "\n".join(render_template("post.html", post=post) for post in front_posts)
             + render_template("on_reveal.html", topic=topic)
-            + "\n".join(render_template("post.html", post=post) for post in front_posts)
+            + "\n".join(render_template("post.html", post=post) for post in back_posts)
             + """<div id="end">Out of posts!</div>"""
         )
 
