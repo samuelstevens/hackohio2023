@@ -1,8 +1,8 @@
 import os
 
-from flask import Flask, request, render_template
+from flask import Flask, render_template
 
-from . import ai
+from . import db, posts, api
 
 
 def create_app(test_config=None):
@@ -26,48 +26,17 @@ def create_app(test_config=None):
     except OSError:
         pass
 
+    db.init_app(app)
+
     @app.route("/ping")
     def ping():
         return "ping"
 
-    @app.route("/search")
-    def search():
-        return render_template("search.html")
+    app.register_blueprint(posts.bp)
+    app.register_blueprint(api.bp)
 
-    @app.route("/posts", methods=("GET", "POST"))
-    def posts():
-        facts = []
-
-        if request.method == "POST":
-            # Get the content
-            topic = request.form.get("topic")
-            dev_mode = request.form.get("dev", "prod")
-        elif request.method == "GET":
-            topic = request.args.get("topic")
-            dev_mode = request.args.get("dev", "prod")
-
-        if not topic and not facts:
-            posts = []
-            title = "Search"
-        else:
-            if dev_mode == "cache-only":
-                # Load from cache
-                posts = [ai.dummy_reddit()]
-                # raise NotImplementedError()
-            elif dev_mode == "no-cache":
-                shortform = ai.GreenText()
-                posts = shortform.new(topic=topic, n=1)
-            elif dev_mode == "prod":
-                raise NotImplementedError()
-            else:
-                raise ValueError()
-            title = topic
-        print(posts)
-
-        return render_template("posts.html", posts=posts, title=title)
-
-    @app.route("/api/more")
-    def more():
-        breakpoint()
+    @app.route("/")
+    def home():
+        return render_template("home.html", posts=[], title="")
 
     return app
