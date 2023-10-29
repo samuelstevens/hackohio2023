@@ -1,0 +1,12 @@
+[project]
+name = "tttutor"
+version = "1.0.0"
+description = "TikTok tutor app."
+dependencies = [
+    "flask<3.0",
+    "openai"
+]
+
+[build-system]
+requires = ["flit_core<4"]
+build-backend = "flit_core.buildapi"
