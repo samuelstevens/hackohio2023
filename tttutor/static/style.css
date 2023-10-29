@@ -23,6 +23,10 @@ html,body {
   height:100%;
 }
 
+::-webkit-scrollbar{
+  opacity: 0;
+}
+
 /* GREENTEXT */
 
 div.greentext {
