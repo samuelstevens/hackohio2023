@@ -6,17 +6,81 @@
 
 {% block content %}
 <header>
- <form method="get">
-  <label for="topic">Topic</label>
-  <input name="topic" id="topic" value="computer science">
-  <label for="dev">Dev Mode</label>
-  <select name="dev" id="dev">
-   <option value="prod">Production</option>
-   <option value="cache-only">Use cached</option>
-   <option value="no-cache">Ignore cache</option>
-  </select>
-  <input type="submit" value="Search">
- </form>
+ <style>
+  .collapse-button{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+
+    width:100%;
+    background-color: #eee;
+    color: #444;
+    border: none;
+    height: 30px;
+  }
+  .collapse-button img{
+    width: 15px;
+    height: 15px;
+  }
+  .active, .collapse-button:hover{
+    background-color: #ccc;
+  }
+  .collapse-button:after{
+    content: '\02795'; 
+
+  }
+  .active:after{
+    content: "\2796";
+  }
+  .search-fields{
+    padding: 0 18px;
+    background-color: #eee;
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.2s ease-out;
+  }
+  .search-container{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+  }
+ </style>
+
+ <button class="collapse-button"></button>
+
+ <div class="search-fields">
+    <form method="get">
+        <div style="height:10px"></div>
+            <div class="search-container">
+                <div style="margin: 0px 5px 5px">
+                    <label for="topic">Topic</label>
+                    <input name="topic" id="topic" value="computer science">
+                </div>
+                <div style="margin: 0px 5px 0px">
+                    <label for="dev">Dev Mode</label>
+                    <select name="dev" id="dev">
+                     <option value="prod">Production</option>
+                     <option value="cache-only">Use cached</option>
+                     <option value="no-cache">Ignore cache</option>
+                    </select>
+                </div>
+                <input style="margin: 0px 5px 0px" type="submit" value="Search">
+            </div>
+        <div style="height:10px"></div>
+    </form>
+</div>
+
+ <script>
+    document.getElementsByClassName("collapse-button")[0].addEventListener("click", () => {
+        document.getElementsByClassName("collapse-button")[0].classList.toggle("active");
+        if (document.getElementsByClassName("search-fields")[0].style.maxHeight){
+            document.getElementsByClassName("search-fields")[0].style.maxHeight = null;
+        }else{
+            document.getElementsByClassName("search-fields")[0].style.maxHeight = document.getElementsByClassName("search-fields")[0].scrollHeight + "px";
+        }
+    });
+ </script>
 </header>
 <div>
 {% for post in posts %}
