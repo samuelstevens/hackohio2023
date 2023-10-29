@@ -124,7 +124,7 @@ div.twitter {
   font-family: sans-serif;
 }
 div.twitter .line {
-  border-left: 2px solid grey;
+  border-left: 2px solid lightgrey;
   width:2px;
   height: 80%;
   justify-self: center;    
