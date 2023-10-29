@@ -27,11 +27,14 @@ def close_db(e=None):
 def save_posts(posts: list[schema.Post]):
     db = get_db()
     values = [(post.raw, post.type, post.topic, ",".join(post.facts)) for post in posts]
-    db.executemany(
-        "INSERT INTO post (raw, type, topic, facts, likes) VALUES (?, ?, ?, ?, 0)",
-        values,
-    )
-    db.commit()
+    try:
+        db.executemany(
+            "INSERT INTO post (raw, type, topic, facts, likes) VALUES (?, ?, ?, ?, 0)",
+            values,
+        )
+        db.commit()
+    except sqlite3.IntegrityError:
+        pass
 
 
 def load_posts(*, topic: str, n: int) -> list[schema.Post]:
