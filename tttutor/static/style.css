@@ -102,6 +102,7 @@ div.reddit img.profile{
   width:30px;
   height:30px;
   margin-right:5px;
+  border-radius: 100%;
 }
 div.reddit div.username-box{
   display: flex;
@@ -226,6 +227,7 @@ div.post {
   position: relative;
 
   scroll-snap-align: center;
+  scroll-snap-stop: always;
 }
 
 div.post > div {
